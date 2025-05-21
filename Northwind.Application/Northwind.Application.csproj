@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\Northwind.Application.Abstractions\Northwind.Application.Abstractions.csproj" />
     <ProjectReference Include="..\Northwind.Domain\Northwind.Domain.csproj" />
-    <ProjectReference Include="..\Northwind.Application.Contracts\Northwind.Application.Abstractions.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

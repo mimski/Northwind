@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Northwind.Api\Northwind.Api.csproj" />
+    <ProjectReference Include="..\..\Northwind.Application.Abstractions\Northwind.Application.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
