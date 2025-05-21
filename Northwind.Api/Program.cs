@@ -1,3 +1,4 @@
+using Northwind.Api.Middleware;
 using Northwind.Application.Abstractions.Contracts;
 using Northwind.Application.Services;
 using Northwind.Persistence;
@@ -29,6 +30,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("mvc");
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

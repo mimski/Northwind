@@ -20,7 +20,7 @@ public sealed class CustomersController : ControllerBase
     {
         if (page < 1 || size is < 1 or > 100)
         {
-            return BadRequest();
+            return BadRequest("Invalid pagination parameters.");
         }
 
         var data = await _customerService.BrowseAsync(page, size, search, ct);
