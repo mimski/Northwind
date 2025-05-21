@@ -1,0 +1,49 @@
+﻿@model CustomerDetailsViewModel
+@{
+    ViewData["Title"] = "Customer details";
+}
+
+<h2>@Model.Customer.CompanyName</h2>
+<p>
+    <strong>Contact:</strong> @Model.Customer.ContactName <br />
+    <strong>Country:</strong> @Model.Customer.Country
+</p>
+
+<h3 class="mt-4">Orders</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th class="text-end">Products</th>
+            <th class="text-end">Total</th>
+            <th>Issue</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Customer.Orders)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate?.ToShortDateString()</td>
+                <td class="text-end">@order.ProductsCount</td>
+                <td class="text-end">@order.Total.ToString("C")</td>
+                <td>
+                    @if (order.HasDiscontinuedProduct || order.HasInsufficientStock)
+                    {
+                        <ul class="mb-0 small">
+                            @if (order.HasDiscontinuedProduct)
+                            {
+                                <li class="text-danger">Contains discontinued product</li>
+                            }
+                            @if (order.HasInsufficientStock)
+                            {
+                                <li class="text-warning">Insufficient stock</li>
+                            }
+                        </ul>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
